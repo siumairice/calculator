@@ -115,13 +115,30 @@ document.getElementById("num-9").addEventListener("click", () => {
 })
 
 document.getElementById("num-0").addEventListener("click", () => { 
-    if(nextNum==false){
-        firstNum += "0"
-        result.textContent = firstNum  
-    }else{
-        secondNum+= "0"
-        result.textContent = secondNum
+        if(nextNum==false){
+            firstNum += "0"
+            result.textContent = firstNum  
+        }else{
+            secondNum+= "0"
+            result.textContent = secondNum
+        }
+    
+
+    console.log(`first: ${firstNum}`)
+    console.log(`second: ${secondNum}`)
+})
+
+document.getElementById("decimal").addEventListener("click", () => {
+    if(!firstNum.includes(".")){
+        if(nextNum==false){
+            firstNum += "."
+            result.textContent = firstNum  
+        }
+    }else if(!secondNum.includes(".")){
+            secondNum+= "."
+            result.textContent = secondNum
     }
+    
     console.log(`first: ${firstNum}`)
     console.log(`second: ${secondNum}`)
 })
@@ -129,6 +146,7 @@ document.getElementById("num-0").addEventListener("click", () => {
 document.getElementById("add").addEventListener("click", () =>{
     nextNum = true
     if(operation!==null){
+        operate(firstNum, secondNum)
         firstNum = answer
         secondNum = ""
     }
@@ -140,18 +158,21 @@ document.getElementById("add").addEventListener("click", () =>{
 
 document.getElementById("subtract").addEventListener("click", () =>{
     nextNum = true
+    answer = firstNum
     if(operation!==null){
+        operate(firstNum, secondNum)
         firstNum = answer
         secondNum = ""
     }
     operation = "subtract"
     console.log(operation)
-    result.textContent = `${firstNum} -`
+    result.textContent = `${answer} -`
 })
 
 document.getElementById("multiply").addEventListener("click", () =>{
     nextNum = true
     if(operation!==null){
+        operate(firstNum, secondNum)
         firstNum = answer
         secondNum = ""
     }
@@ -163,6 +184,7 @@ document.getElementById("multiply").addEventListener("click", () =>{
 document.getElementById("divide").addEventListener("click", () =>{
     nextNum = true
     if(operation!==null){
+        operate(firstNum, secondNum)
         firstNum = answer
         secondNum = ""
     }
@@ -209,4 +231,9 @@ function operate(firstNum, secondNum){
     }
     console.log(`answer: ${answer}`)
     result.textContent = answer
+    firstNum = answer
+    secondNum = ""
+    console.log(`first: ${firstNum} second: ${secondNum}`)
 } 
+
+console.log(`first: ${firstNum} second: ${secondNum}`)
