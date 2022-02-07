@@ -129,16 +129,13 @@ document.getElementById("num-0").addEventListener("click", () => {
 })
 
 document.getElementById("decimal").addEventListener("click", () => {
-    if(!firstNum.includes(".")){
-        if(nextNum==false){
-            firstNum += "."
-            result.textContent = firstNum  
-        }
-    }else if(!secondNum.includes(".")){
-            secondNum+= "."
-            result.textContent = secondNum
+    if(nextNum==false){
+        firstNum += "."
+        result.textContent = firstNum  
+    }else{
+        secondNum+= "."
+        result.textContent = secondNum
     }
-    
     console.log(`first: ${firstNum}`)
     console.log(`second: ${secondNum}`)
 })
