@@ -175,9 +175,7 @@ document.getElementById("operate").addEventListener("click", () =>{
     nextNum = true
     operate(firstNum, secondNum)
 })
-document.getElementById("clear").addEventListener("click", reset())
-
-function reset(){
+document.getElementById("clear").addEventListener("click", () =>{
     nextNum = false
     firstNum = ""
     secondNum = ""
@@ -186,7 +184,7 @@ function reset(){
     console.log(`first: ${firstNum}`)
     console.log(`second: ${secondNum}`)
     result.textContent = 0
-}
+})
 
 
 function operate(firstNum, secondNum){
